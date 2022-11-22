@@ -5,12 +5,13 @@ namespace UniversityApiBackend.Models.DataModels {
         [Required]
         [Key]
         public int id { get; set; }
-        public string createdBy { get; set; } = string.Empty;
+        public int userIdCreated { get; set; }
         public DateTime createdAt { get; set; } = DateTime.Now;
-        public string updatedBy { get; set; } = string.Empty;
+        public int? userIdUpdate { get; set; }
         public DateTime? updatedAt { get; set; }
-        public string deletedBy { get; set; } = string.Empty;
+        public int? userIdDelete { get; set; }
         public DateTime? deletedAt { get; set; }
-        public bool isDeleted { get; set; }
+        public bool isDeleted { get; set; } = false;
+        public virtual User user { get; set; } = new User();
     }
 }
